@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "devDependencies": {
+    "@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
+    "@wordpress/babel-preset-default": "^4.19.0",
+    "@wordpress/browserslist-config": "^2.7.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^2.8.0",
+    "cross-env": "^7.0.2",
+    "laravel-mix": "^5.0.9",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.0.5",
+    "tailwindcss": "^1.9.6",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build:production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "start": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js --watch"
+  },
+  "dependencies": {
+    "react-lorem-ipsum": "^1.4.7"
+  }
+}
