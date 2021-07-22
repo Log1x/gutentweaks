@@ -47,7 +47,7 @@ class GutenTweaks
      */
     public function registerEditorSettings()
     {
-        add_filter('block_editor_settings', function ($config) {
+        add_filter('block_editor_settings_all', function ($config) {
             return array_merge($config, [
                 'autosaveInterval' => WEEK_IN_SECONDS,
             ]);
