@@ -5,14 +5,10 @@ import './extensions/disable-block-types'
 import './extensions/disable-welcome-guide'
 import './extensions/disable-fullscreen'
 
-import { filterCategories } from './extensions/filter-categories'
-
 import {
   registerBlockStyles,
   unregisterBlockStyles,
 } from './hooks/block-styles'
-
-filterCategories('formatting', ['conversion', 'embed', 'widgets'])
 
 /**
  * Document Ready
