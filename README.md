@@ -3,7 +3,7 @@
 ![Latest Stable Version](https://img.shields.io/packagist/v/log1x/gutentweaks?style=flat-square)
 ![Total Downloads](https://img.shields.io/packagist/dt/log1x/gutentweaks?style=flat-square)
 
-**Not ready for use.**
+**Not for public use. Use at your own risk.**
 
 ## Requirements
 
