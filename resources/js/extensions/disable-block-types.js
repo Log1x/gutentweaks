@@ -62,6 +62,7 @@ const blacklist = [
   'core/widget-area',
   'editorskit/',
   'html-forms/',
+  'mv/',
   'page-generator-pro/',
   'rank-math/howto-block',
   'yoast-seo/breadcrumbs',
@@ -74,8 +75,8 @@ const blacklist = [
 
 domReady(() => {
   getBlockTypes().forEach(
-    block =>
-      blacklist.some(x => block.name.includes(x)) &&
+    (block) =>
+      blacklist.some((x) => block.name.includes(x)) &&
       unregisterBlockType(block.name)
   )
 })
