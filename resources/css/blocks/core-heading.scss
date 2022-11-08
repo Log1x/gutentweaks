@@ -1,15 +1,15 @@
 .wp-block[data-type='core/heading'] {
   @apply relative;
 
-  &:not(.is-selected)::after {
-    @apply font-sans absolute mt-2 -ml-8 font-medium text-xs opacity-50 tracking-tight uppercase;
+  &:not(.is-selected)::before {
+    @apply font-sans absolute mt-3 -ml-8 font-medium text-xs opacity-50 tracking-tight uppercase;
 
     content: '';
   }
 }
 
 @each $heading in ('h1', 'h2', 'h3', 'h4', 'h5', 'h6') {
-  #{$heading}.wp-block[data-type='core/heading']:not(.is-selected)::after {
+  #{$heading}.wp-block[data-type='core/heading']:not(.is-selected)::before {
     content: '#{$heading}';
   }
 }

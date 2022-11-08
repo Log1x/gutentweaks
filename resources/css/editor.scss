@@ -1,4 +1,6 @@
-@import './blocks/core-heading';
+.editor-styles-wrapper {
+  @import './blocks/core-heading';
+}
 
 table.wpil-outbound-links {
   @apply relative #{!important};
