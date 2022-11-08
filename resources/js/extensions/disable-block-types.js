@@ -2,11 +2,14 @@ import domReady from '@wordpress/dom-ready'
 import { unregisterBlockType, getBlockTypes } from '@wordpress/blocks'
 
 const blacklist = [
+  'bcn/breadcrumb-trail',
   'core/archive',
   'core/audio',
   'core/avatar',
   'core/calendar',
   'core/categories',
+  'core/comments',
+  'core/comment-template',
   'core/comment-author-name',
   'core/comment-content',
   'core/comment-date',
@@ -21,6 +24,7 @@ const blacklist = [
   'core/embed',
   'core/file',
   'core/gallery',
+  'core/home-link',
   'core/latest-comments',
   'core/latest-posts',
   'core/legacy-widget',
@@ -65,6 +69,7 @@ const blacklist = [
   'mv/',
   'page-generator-pro/',
   'rank-math/howto-block',
+  'rank-math/rich-snippet',
   'yoast-seo/breadcrumbs',
   'yoast-seo/estimated-reading-time',
   'yoast-seo/related-links',
@@ -75,8 +80,8 @@ const blacklist = [
 
 domReady(() => {
   getBlockTypes().forEach(
-    (block) =>
-      blacklist.some((x) => block.name.includes(x)) &&
+    block =>
+      blacklist.some(x => block.name.includes(x)) &&
       unregisterBlockType(block.name)
   )
 })
