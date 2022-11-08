@@ -66,6 +66,7 @@ const blacklist = [
   'core/widget-area',
   'editorskit/',
   'html-forms/',
+  'monsterinsights/',
   'mv/',
   'page-generator-pro/',
   'rank-math/howto-block',
