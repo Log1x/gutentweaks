@@ -1,7 +1,5 @@
 .editor-styles-wrapper {
+  @import './blocks/core-list';
+  @import './blocks/core-classic';
   @import './blocks/core-heading';
-}
-
-table.wpil-outbound-links {
-  @apply relative #{!important};
 }

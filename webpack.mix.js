@@ -14,9 +14,9 @@ const mix = require('laravel-mix')
 
 mix
   .setPublicPath('./public')
-  .sass('resources/css/blocks.scss', 'public/css')
+  .sass('resources/css/app.scss', 'public/css')
   .sass('resources/css/editor.scss', 'public/css')
-  .js('resources/js/blocks.js', 'public/js')
+  .js('resources/js/app.js', 'public/js')
   .blocks('resources/js/editor.js', 'public/js')
   .options({
     processCssUrls: false,

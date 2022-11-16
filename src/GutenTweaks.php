@@ -36,7 +36,6 @@ class GutenTweaks
 
         $this->inlineBlockStyles();
         $this->enqueueBlockAssets();
-        $this->enqueueEditorAssets();
     }
 
     /**
@@ -62,13 +61,13 @@ class GutenTweaks
     public function inlineBlockStyles()
     {
         add_filter('wp_head', function () {
-            if (! $this->asset('css/blocks.css')) {
+            if (! $this->asset('css/app.css')) {
                 return;
             }
 
             echo sprintf(
                 '<style>%s</style>',
-                (new Minify\CSS($this->path . 'public/css/blocks.css'))->minify()
+                (new Minify\CSS($this->path . 'public/css/app.css'))->minify()
             );
         });
     }
@@ -81,36 +80,7 @@ class GutenTweaks
     public function enqueueBlockAssets()
     {
         add_filter('enqueue_block_editor_assets', function () {
-            if ($manifest = include($this->path . 'public/js/blocks.asset.php')) {
-                wp_enqueue_script(
-                    'blocks/blocks.js',
-                    $this->asset('js/blocks.js'),
-                    ...array_values($manifest)
-                );
-            }
-
-            wp_enqueue_style('blocks/blocks.css', $this->asset('css/blocks.css'), false, null);
-        });
-    }
-
-    /**
-     * Enqueue the Gutenberg editor assets.
-     *
-     * @return void
-     */
-    public function enqueueEditorAssets()
-    {
-        add_filter('init', function () {
-            global $pagenow;
-
-            if (
-                ! is_admin() ||
-                ! $this->contains($pagenow, ['post.php', 'post-new.php'])
-            ) {
-                return;
-            }
-
-            if ($manifest = include $this->path . 'public/js/editor.asset.php') {
+            if ($manifest = include($this->path . 'public/js/editor.asset.php')) {
                 wp_enqueue_script(
                     'blocks/editor.js',
                     $this->asset('js/editor.js'),
