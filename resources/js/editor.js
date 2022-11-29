@@ -66,6 +66,10 @@ domReady(() => {
           label: __('Check', 'gutentweaks'),
         },
         {
+          name: 'check-circle',
+          label: __('Check (Circle)', 'gutentweaks'),
+        },
+        {
           name: 'times',
           label: __('Times', 'gutentweaks'),
         },
@@ -84,6 +88,14 @@ domReady(() => {
         {
           name: 'numeric',
           label: __('Numeric', 'gutentweaks'),
+        },
+        {
+          name: 'star',
+          label: __('Star', 'gutentweaks'),
+        },
+        {
+          name: 'dash',
+          label: __('Dash', 'gutentweaks'),
         },
       ],
     },
