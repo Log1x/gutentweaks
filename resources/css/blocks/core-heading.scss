@@ -1,8 +1,8 @@
 .wp-block[data-type='core/heading'] {
-  @apply relative;
+  @apply relative flex items-center;
 
   &:not(.is-selected)::before {
-    @apply font-sans absolute mt-3 -ml-8 font-medium text-xs opacity-50 tracking-tight uppercase;
+    @apply font-sans -ml-8 absolute font-medium text-xs opacity-50 tracking-tight uppercase;
 
     content: '';
   }
