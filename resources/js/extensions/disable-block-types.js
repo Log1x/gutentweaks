@@ -64,6 +64,7 @@ const blacklist = [
   'core/term-description',
   'core/verse',
   'core/widget-area',
+  'core/footnotes',
   'editorskit/',
   'html-forms/',
   'monsterinsights/',
@@ -76,6 +77,8 @@ const blacklist = [
   'yoast-seo/estimated-reading-time',
   'yoast-seo/related-links',
   'yoast-seo/table-of-contents',
+  'yoast-seo/siblings',
+  'yoast-seo/subpages',
 ]
 
 domReady(() => {
