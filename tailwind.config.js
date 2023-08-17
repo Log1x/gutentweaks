@@ -1,4 +1,3 @@
 module.exports = {
-  variants: {},
-  plugins: [],
+  content: ['./resources/**/*.js'],
 }
