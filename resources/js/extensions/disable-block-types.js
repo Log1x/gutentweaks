@@ -60,6 +60,7 @@ const blacklist = [
   'core/site-title',
   'core/social-link',
   'core/tag-cloud',
+  'core/details',
   'core/template-part',
   'core/term-description',
   'core/verse',
