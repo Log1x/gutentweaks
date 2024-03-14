@@ -18,6 +18,7 @@ mix
   .sass('resources/css/editor.scss', 'public/css')
   .js('resources/js/app.js', 'public/js')
   .blocks('resources/js/editor.js', 'public/js')
+  .version()
   .options({
     processCssUrls: false,
     postCss: [require('tailwindcss')('./tailwind.config.js')]

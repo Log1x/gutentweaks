@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/app.asset.php": "/js/app.asset.php",
-    "/js/editor.js": "/js/editor.js",
-    "/js/editor.asset.php": "/js/editor.asset.php",
-    "/css/editor.css": "/css/editor.css",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=887c41246eae264f801d635b5e967e05",
+    "/js/app.asset.php": "/js/app.asset.php?id=ed8c09fd7df0bdddfd45f14d80c8dd8c",
+    "/js/editor.js": "/js/editor.js?id=625400b2b1f60392e6c66836cc7453cb",
+    "/js/editor.asset.php": "/js/editor.asset.php?id=3966666216b5eac0c7404db284a0c321",
+    "/css/editor.css": "/css/editor.css?id=519a8a77aa5e669473f352b658db844e",
+    "/css/app.css": "/css/app.css?id=71e98cf87c85b21a526dff38c95dad81"
 }
