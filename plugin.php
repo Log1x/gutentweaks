@@ -4,7 +4,7 @@
  * Plugin Name: GutenTweaks
  * Plugin URI:  https://github.com/log1x/gutentweaks
  * Description: A plugin containing a few Gutenberg tweaks.
- * Version:     1.1.4
+ * Version:     1.1.5
  * Author:      Brandon Nifong
  * Author URI:  https://github.com/log1x
  * Licence:     MIT
@@ -25,9 +25,9 @@ add_action('plugins_loaded', new class
             require_once $composer;
         }
 
-        return new GutenTweaks(
-            plugin_dir_path(__FILE__),
-            plugin_dir_url(__FILE__)
-        );
+        GutenTweaks::make(
+            path: plugin_dir_path(__FILE__),
+            uri: plugin_dir_url(__FILE__)
+        )->boot();
     }
 });

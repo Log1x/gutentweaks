@@ -7,31 +7,26 @@ use MatthiasMullie\Minify;
 class GutenTweaks
 {
     /**
-     * The plugin directory path.
-     *
-     * @var string
-     */
-    protected $path;
-
-    /**
-     * The plugin directory URI.
-     *
-     * @var string
-     */
-    protected $uri;
-
-    /**
      * Initialize the plugin.
-     *
-     * @param  string $path
-     * @param  string $uri
-     * @return void
      */
-    public function __construct($path, $uri)
+    public function __construct(protected string $path, protected string $uri)
     {
-        $this->path = $path;
-        $this->uri = $uri;
+        //
+    }
 
+    /**
+     * Create a new instance of the plugin.
+     */
+    public static function make(string $path, string $uri): self
+    {
+        return new static($path, $uri);
+    }
+
+    /**
+     * Boot the plugin.
+     */
+    public function boot(): void
+    {
         $this->registerEditorSettings();
 
         $this->inlineBlockStyles();
@@ -40,11 +35,8 @@ class GutenTweaks
 
     /**
      * Register default block editor settings.
-     *
-     * @param  array $config
-     * @return array
      */
-    public function registerEditorSettings()
+    public function registerEditorSettings(): void
     {
         add_filter('block_editor_settings_all', function ($config) {
             return array_merge($config, [
@@ -55,29 +47,29 @@ class GutenTweaks
 
     /**
      * Inline the frontend editor styles.
-     *
-     * @return void
      */
-    public function inlineBlockStyles()
+    public function inlineBlockStyles(): void
     {
         add_filter('wp_head', function () {
             if (! $this->asset('css/app.css')) {
                 return;
             }
 
-            echo sprintf(
+            $styles = sprintf(
                 '<style>%s</style>',
                 (new Minify\CSS($this->path . 'public/css/app.css'))->minify()
             );
+
+            $styles = str_replace('@charset "UTF-8";', '', $styles);
+
+            echo $styles;
         });
     }
 
     /**
      * Enqueue the block editor assets.
-     *
-     * @return void
      */
-    public function enqueueBlockAssets()
+    public function enqueueBlockAssets(): void
     {
         add_filter('enqueue_block_editor_assets', function () {
             if ($manifest = include($this->path . 'public/js/editor.asset.php')) {
@@ -94,10 +86,8 @@ class GutenTweaks
 
     /**
      * Resolve the URI for an asset using the manifest.
-     *
-     * @return string
      */
-    public function asset($asset = '', $manifest = 'public/mix-manifest.json')
+    public function asset(string $asset = '', string $manifest = 'public/mix-manifest.json'): string
     {
         if (! file_exists($manifest = $this->path . $manifest)) {
             return $this->uri . 'public/' . $asset;
@@ -110,12 +100,8 @@ class GutenTweaks
 
     /**
      * Determine if a given string contains a given substring.
-     *
-     * @param  string  $haystack
-     * @param  string|string[]  $needles
-     * @return bool
      */
-    public function contains($haystack, $needles)
+    public function contains(string $haystack, string|array $needles): bool
     {
         foreach ((array) $needles as $needle) {
             if ($needle !== '' && mb_strpos($haystack, $needle) !== false) {
