@@ -30,3 +30,7 @@
     }
   }
 }
+
+.editor-text-editor .editor-post-title.is-raw-text textarea {
+  @apply text-xl font-bold;
+}
