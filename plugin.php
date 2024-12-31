@@ -21,7 +21,7 @@ add_action('plugins_loaded', new class
      */
     public function __invoke()
     {
-        if (file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
+        if (file_exists($composer = __DIR__.'/vendor/autoload.php')) {
             require_once $composer;
         }
 

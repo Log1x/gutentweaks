@@ -57,7 +57,7 @@ class GutenTweaks
 
             $styles = sprintf(
                 '<style>%s</style>',
-                (new Minify\CSS($this->path . 'public/css/app.css'))->minify()
+                (new Minify\CSS($this->path.'public/css/app.css'))->minify()
             );
 
             $styles = str_replace('@charset "UTF-8";', '', $styles);
@@ -72,7 +72,7 @@ class GutenTweaks
     public function enqueueBlockAssets(): void
     {
         add_filter('enqueue_block_editor_assets', function () {
-            if ($manifest = include($this->path . 'public/js/editor.asset.php')) {
+            if ($manifest = include ($this->path.'public/js/editor.asset.php')) {
                 wp_enqueue_script(
                     'blocks/editor.js',
                     $this->asset('js/editor.js'),
@@ -89,13 +89,13 @@ class GutenTweaks
      */
     public function asset(string $asset = '', string $manifest = 'public/mix-manifest.json'): string
     {
-        if (! file_exists($manifest = $this->path . $manifest)) {
-            return $this->uri . 'public/' . $asset;
+        if (! file_exists($manifest = $this->path.$manifest)) {
+            return $this->uri.'public/'.$asset;
         }
 
         $manifest = json_decode(file_get_contents($manifest), true);
 
-        return $this->uri . 'public/' . ($manifest[$asset] ?? $asset);
+        return $this->uri.'public/'.($manifest[$asset] ?? $asset);
     }
 
     /**
