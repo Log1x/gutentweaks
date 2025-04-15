@@ -21,7 +21,6 @@ const blacklist = [
   'core/comments-query-loop',
   'core/comments-title',
   'core/comments',
-  'core/embed',
   'core/file',
   'core/gallery',
   'core/home-link',
